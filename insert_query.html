@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>insertQuery</title>
+</head>
+<body>
+<form action="#" th:action="@{/query/processQuery}" th:object="${queryDTO}"   method="post" class="input-group">
+
+
+    <label >post query</label>
+    <textarea  rows="4" cols="50" th:field="*{queryText}">
+"Enter Your Query here..."
+</textarea>
+    <br>
+    <label >select image</label>
+    <input type="file" name="myImage" accept="image/*" th:field="*{queryImage}" />
+    <br>
+    <th:block th:object="${categoryDTO}">
+    <label >select category</label>
+
+    <select name="category">
+        <option value="food" >Food</option>
+        <option value="clothes" >clothes</option>
+        <option value="shelter" >shelter</option>
+
+    </select>
+    </th:block>
+            <br>
+
+    <th:block th:object="${addressDTO}">
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{houseNumber}" required>
+            <label>House number</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{street}" required>
+            <label>Street</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{landmark}" required>
+            <label>LandMark</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{city}" required>
+            <label>City</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{ZIP}" required>
+            <label>ZIP</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{state}" required>
+            <label>State</label>
+        </div>
+        <div class="inputBox">
+            <input type="text" class="input-field" th:field="*{country}" required>
+            <label>Country</label>
+        </div>
+        <br>
+        <input type="submit" value="submit" class="submit-btn">
+
+
+
+    </th:block>
+</form>
+</body>
+</html>
